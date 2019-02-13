@@ -120,6 +120,10 @@
     <Compile Include="Migrations\201902130754048_Database2.Designer.cs">
       <DependentUpon>201902130754048_Database2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902131014463_Image.cs" />
+    <Compile Include="Migrations\201902131014463_Image.Designer.cs">
+      <DependentUpon>201902131014463_Image.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\BaseEntity.cs" />
@@ -157,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902130754048_Database2.resx">
       <DependentUpon>201902130754048_Database2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902131014463_Image.resx">
+      <DependentUpon>201902131014463_Image.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
