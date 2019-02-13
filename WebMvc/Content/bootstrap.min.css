@@ -4493,16 +4493,17 @@ a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
     font-weight: 200;
     line-height: 2.1428571435;
     color: inherit;
-    background-color: #eee
+    background-color: #131212
 }
 
     .jumbotron h1 {
         line-height: 1;
-        color: inherit
+        color: #fff
     }
 
     .jumbotron p {
-        line-height: 1.4
+        line-height: 1.4 ;
+        color: #fff
     }
 
 .container .jumbotron {
