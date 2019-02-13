@@ -16,6 +16,7 @@ namespace WebMvc.Models
             public DbSet<Sube> Sube { get; set; }
             public DbSet<Urunler> Urunler { get; set; }
             public DbSet<User> User { get; set; }
-        }
+        public DbSet<Image> Image { get; set; }
+    }
     
 }

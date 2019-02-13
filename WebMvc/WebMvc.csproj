@@ -116,9 +116,14 @@
     <Compile Include="Migrations\201902130644107_Database.Designer.cs">
       <DependentUpon>201902130644107_Database.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902130754048_Database2.cs" />
+    <Compile Include="Migrations\201902130754048_Database2.Designer.cs">
+      <DependentUpon>201902130754048_Database2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Sube.cs" />
     <Compile Include="Models\Urunler.cs" />
     <Compile Include="Models\User.cs" />
@@ -149,6 +154,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902130644107_Database.resx">
       <DependentUpon>201902130644107_Database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902130754048_Database2.resx">
+      <DependentUpon>201902130754048_Database2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
