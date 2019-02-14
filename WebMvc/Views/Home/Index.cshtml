@@ -1,13 +1,18 @@
 ﻿@model IEnumerable<WebMvc.Models.Image>
 @{
-    ViewBag.Title = "Index";
+                /**/
+
+                ViewBag.Title = "Index";
 }
 <header>
+    
     <div style="background-color:black">
-        <div class="jumbotron">
+        <div class="jumbotron" style="text-align:center">
+           <div class="container">
             <h1>HOŞ GELDİNİZ...</h1>
             <p>Hoş Geldiniz...</p>
             <p><a class="btn btn-primary btn-lg" href="/Home/Index" role="button">Ürünler</a></p>
+            </div>
         </div>
     </div>
 </header>
@@ -38,7 +43,7 @@
                         if (sayi == 0)
                         {
                             <div class="item active">
-                                <img src="@link" alt="...">
+                                <img src="@link" width="1140" height="501">
                                 <div class="carousel-caption">
                                     <h3>@baslik</h3>
                                     <p>@aciklama</p>
@@ -50,7 +55,7 @@
                         else
                         {
                             <div class="item ">
-                                <img src="@link" alt="...">
+                                <img src="@link" width="1140" height="501">
                                 <div class="carousel-caption">
                                     <h3>@baslik</h3>
                                     <p>@aciklama</p>
@@ -79,16 +84,19 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    </div>
-<hr class="featurette-divider">
-<div class="container">
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="445" height="300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 445x300"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">445x300</text></svg>
-        </div>
-    </div>
 </div>
+@foreach (var item in Model)
+{
+    <hr class="featurette-divider">
+    <div class="container" id="Urunler">
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">@item.Baslik <span class="text-muted">@item.Baslik</span></h2>
+                <p class="lead">@item.Aciklama</p>
+            </div>
+            <div class="col-md-5">
+                <img src="@item.Url" width="445" height="250" />
+            </div>
+        </div>
+    </div>
+}

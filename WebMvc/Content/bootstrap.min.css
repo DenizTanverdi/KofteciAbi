@@ -3656,7 +3656,8 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
     z-index: 1000;
     min-height: 50px;
     margin-bottom: 20px;
-    border: 1px solid transparent
+    border: 1px solid transparent;
+    opacity:0.8;
 }
 
     .navbar:before, .navbar:after {
@@ -4012,7 +4013,8 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 
 .navbar-default {
     background-color: #130303;
-    border-color: #e7e7e7
+    border-color: #e7e7e7;
+    opacity: 0.8;
 }
 
     .navbar-default .navbar-brand {
