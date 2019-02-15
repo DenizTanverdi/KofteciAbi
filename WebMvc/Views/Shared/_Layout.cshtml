@@ -8,9 +8,10 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 </head>
 <body class="body">
-    <nav class="navbar navbar-default navbar-fixed-top " >
+    <nav class="navbar navbar-default navbar-fixed-top ">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -36,11 +37,34 @@
     @RenderBody()
 
     <hr />
-    <div class="container">
-        <footer>
-            <p>&copy; @DateTime.Now.Year -DENİZ TANRIVERDİ</p>
-        </footer>
-    </div>
+
+    <footer>
+        <div class="container rw">
+            <div class="colm"><h1 class="footer">ADRES</h1><p class="txt">MERKEZ MAHALLESİ DÜLDÜL SOKAK NO:17 D:2 ARNAVUTKÖY/İSTANBUL</p></div>
+            <div class="colm"><h1 class="footer">İLETİŞİM</h1><p class="txt container">(0546) 873 61 62</p></div>
+            <div class="colm"><h1 class="footer">EMAİL</h1><p class="txt">Dnztanverdi@gmail.com</p></div>
+            <div class="colm">
+                <h1 class="footer">SOSYAL MEDYA</h1><p>
+                    <div>
+                        <a href="https://www.instagram.com/dnztanverdi/" class="btn link" id="b"><i class=" container fab fa-instagram fa-4x "></i> </a>
+                        <a href="https://www.facebook.com/dnztanverdi/" class="btn link" id="b"><i class="fab fa-facebook fa-4x" style="color:black"></i> </a>
+
+                    </div>
+                </p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="site-info">
+            <div class="site-info_in">
+
+
+                <p class="copyright container" style="text-align:center;color:white;">© 2019 DENİZ TANRIVERDİ</p>
+
+
+            </div><!-- .site-info_in -->
+        </div>
+    </footer>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
