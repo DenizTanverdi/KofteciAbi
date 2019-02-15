@@ -287,10 +287,7 @@ table {
 
             opacity:0.8
     }
-    .link:hover{
-        color:pink;
-        transition:1s;
-    }
+    
 
     .table td, .table th {
         background-color: #fff !important
