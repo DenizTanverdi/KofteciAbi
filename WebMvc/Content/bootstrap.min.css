@@ -1933,8 +1933,8 @@ textarea.input-lg {
     }
 
 .btn-default {
-    color: #333;
-    background-color: #fff;
+    color:white;
+    background-color: #a7781d;
     border-color: #ccc
 }
 
@@ -2088,7 +2088,7 @@ textarea.input-lg {
 
 .btn-lg {
     padding: 10px 16px;
-    font-size: 18px;
+    font-size: 35px;
     line-height: 1.33;
     border-radius: 6px
 }
@@ -4048,7 +4048,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 }
 
 .navbar-default {
-    background-color: #130303;
+    background-color: #a7781d;
     border-color: #e7e7e7;
     opacity: 0.8;
 }
@@ -4533,18 +4533,18 @@ a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
     font-size: 21px;
     font-weight: 200;
     line-height: 2.1428571435;
-    color: inherit;
-    background-color: #131212
+    color: black;
+    background-color: whitesmoke
 }
 
     .jumbotron h1 {
         line-height: 1;
-        color: #fff
+        color: #ad2727
     }
 
     .jumbotron p {
-        line-height: 1.4 ;
-        color: #fff
+        line-height: 1.4;
+        color: #ad2727
     }
 
 .container .jumbotron {
@@ -4563,7 +4563,12 @@ a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
     }
 
     .jumbotron h1 {
-        font-size: 63px
+        font-size: 63px;
+        font-family: 'Charm', cursive;
+    }
+    .jumbotron p {
+        font-size: 50px;
+        font-family: 'Charm', cursive;
     }
 }
 
