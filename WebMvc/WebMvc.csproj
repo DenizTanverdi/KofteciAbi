@@ -127,10 +127,31 @@
     <Compile Include="Migrations\201902131014463_Image.Designer.cs">
       <DependentUpon>201902131014463_Image.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902190804258_kategoriadd.cs" />
+    <Compile Include="Migrations\201902190804258_kategoriadd.Designer.cs">
+      <DependentUpon>201902190804258_kategoriadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902190808156_kategoriupdate.cs" />
+    <Compile Include="Migrations\201902190808156_kategoriupdate.Designer.cs">
+      <DependentUpon>201902190808156_kategoriupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902190809563_kategoriupdate1.cs" />
+    <Compile Include="Migrations\201902190809563_kategoriupdate1.Designer.cs">
+      <DependentUpon>201902190809563_kategoriupdate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902190812248_kategoriupdate2.cs" />
+    <Compile Include="Migrations\201902190812248_kategoriupdate2.Designer.cs">
+      <DependentUpon>201902190812248_kategoriupdate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902191047449_kategoriupdate3.cs" />
+    <Compile Include="Migrations\201902191047449_kategoriupdate3.Designer.cs">
+      <DependentUpon>201902191047449_kategoriupdate3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\Kategori.cs" />
     <Compile Include="Models\Sube.cs" />
     <Compile Include="Models\Urunler.cs" />
     <Compile Include="Models\User.cs" />
@@ -166,6 +187,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902131014463_Image.resx">
       <DependentUpon>201902131014463_Image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902190804258_kategoriadd.resx">
+      <DependentUpon>201902190804258_kategoriadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902190808156_kategoriupdate.resx">
+      <DependentUpon>201902190808156_kategoriupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902190809563_kategoriupdate1.resx">
+      <DependentUpon>201902190809563_kategoriupdate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902190812248_kategoriupdate2.resx">
+      <DependentUpon>201902190812248_kategoriupdate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902191047449_kategoriupdate3.resx">
+      <DependentUpon>201902191047449_kategoriupdate3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

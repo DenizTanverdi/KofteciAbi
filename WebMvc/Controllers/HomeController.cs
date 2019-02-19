@@ -13,6 +13,8 @@ namespace WebMvc.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ViewBag.kategoriListele = db.Kategori.ToList();
+           
             return View(db.Image.ToList());
         }
     }

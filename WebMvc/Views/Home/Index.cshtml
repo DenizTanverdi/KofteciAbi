@@ -1,24 +1,18 @@
 ﻿@model IEnumerable<WebMvc.Models.Image>
+
 @{
     /**/
 
     ViewBag.Title = "Index";
 }
+@using WebMvc.Models
 <header>
     <br />
 
-    <div style="background-color:white;color:black">
-        <div class="jumbotron" style="text-align:center">
-            <div class="container">
-                <h1>HOŞ GELDİNİZ...</h1>
-                <p>Hoş Geldiniz...</p>
-                <p><a class="btn btn-default btn-lg" href="/Home/Index" role="button">Ürünler</a></p>
-            </div>
-        </div>
-    </div>
+
 </header>
 <br />
-<div class="container body-content">
+<div class=" body-content">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -28,7 +22,7 @@
         </ol>
 
         <!-- Wrapper for slides -->
-        <div class="container">
+        <div>
             <div class="carousel-inner" role="listbox">
 
 
@@ -45,7 +39,7 @@
                         if (sayi == 0)
                         {
                             <div class="item active">
-                                <img src="@link" width="1140" height="501">
+                                <img src="@link" width="100%" height="100%">
                                 <div class="carousel-caption">
                                     <h3>@baslik</h3>
                                     <p>@aciklama</p>
@@ -57,7 +51,7 @@
                         else
                         {
                             <div class="item ">
-                                <img src="@link" width="1140" height="501">
+                                <img src="@link" width="100%" height="100%">
                                 <div class="carousel-caption">
                                     <h3>@baslik</h3>
                                     <p>@aciklama</p>
@@ -93,17 +87,19 @@
 
     <img src="~/Images/icon.png" />
 </div>
-@foreach (var item in Model)
+  
+
+@foreach (var item in ViewBag.kategoriListele)
 {
     <hr class="featurette-divider">
     <div class="container">
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">@item.Baslik <span class="text-muted">@item.Baslik</span></h2>
-                <p class="lead">@item.Aciklama</p>
+                <h2 class="featurette-heading">@item.KategoriAdi </h2>
+                <p class="lead">@item.Acıklama</p>
             </div>
             <div class="col-md-5">
-                <img src="@item.Url" width="445" height="250" />
+                <img src="@item.url" width="445" height="250" />
             </div>
         </div>
     </div>
