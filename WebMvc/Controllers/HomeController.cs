@@ -14,7 +14,7 @@ namespace WebMvc.Controllers
         public ActionResult Index()
         {
             ViewBag.kategoriListele = db.Kategori.ToList();
-           
+            ViewBag.urunListele = db.Urunler.ToList();
             return View(db.Image.ToList());
         }
     }

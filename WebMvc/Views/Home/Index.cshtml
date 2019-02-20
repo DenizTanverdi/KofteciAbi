@@ -8,10 +8,11 @@
 @using WebMvc.Models
 <header>
    
+    <br/>
     <div >
         <div class="container">
             <div class="jumbotron container">
-                <img src="~/Images/Hosgeldiniz.png" alt="Hoşgeldiniz" width="100%" height="100%"/>
+                <img src="~/Resim/Hosgeldiniz.png" alt="Hoşgeldiniz" width="100%" height="100%"/>
               
             </div>
         </div>
@@ -92,7 +93,7 @@
 
 <div style="text-align:center" id="Urunler">
 
-    <img src="~/Images/icon.png" />
+    <h1 style="text-align:center">MENÜ</h1>    
 </div>
   
 
@@ -102,8 +103,22 @@
     <div class="container">
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">@item.KategoriAdi </h2>
-                <p class="lead">@item.Acıklama</p>
+                <h1 class="featurette-heading" style="text-transform:uppercase">@item.KategoriAdi </h1>
+                @foreach (var urn in ViewBag.urunListele)
+                {
+                    if (urn.kategoriId==item.Id)
+                    { 
+                <div class="row">
+                    <div class="col-md-8"><h3 style="text-transform: uppercase" ;><bold>@urn.UrunAdi</bold></h3></div>
+                                          <div class="col-md-3">
+                                              <h3 style="text-transform: uppercase" ;>       <bold>@urn.Fiyat <img src="~/Images/tl.png" alt="TL" height="4%" width="4%" /> </bold></h3> 
+                                              </div>
+                    
+                </div>
+                       
+                    }
+
+                }
             </div>
             <div class="col-md-5">
                 <img src="@item.url" width="445" height="250" />
