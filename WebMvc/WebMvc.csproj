@@ -97,6 +97,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Style.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\chicago.jpg" />
     <Content Include="Images\la.jpg" />
@@ -169,6 +170,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -179,7 +182,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Resim\" />
-    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902130644107_Database.resx">
