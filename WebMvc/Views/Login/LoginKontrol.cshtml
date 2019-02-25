@@ -2,6 +2,33 @@
 @{
     ViewBag.Title = "LoginKontrol";
 }
+<style>
+    .vertical-menu {
+        width: 200px;
+    }
 
-<h2>Hoşgeldiniz...</h2>
+        .vertical-menu a {
+            background-color: #eee;
+            color: black;
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+        }
 
+            .vertical-menu a:hover {
+                background-color: #ccc;
+            }
+
+            .vertical-menu a.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+</style>
+
+<div class="vertical-menu">
+    <a href="" class="active">Home</a>
+    <a href="#">Kullanıcılar</a>
+   @Html.ActionLink("Ürünler","Index","Urunler")
+    <a href="#">Resim</a>
+    <a href="#">Yazı</a>
+</div>
