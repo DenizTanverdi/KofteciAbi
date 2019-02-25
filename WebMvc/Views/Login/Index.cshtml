@@ -17,14 +17,33 @@
             <img src="~/Images/icon.png" id="icon" alt="User Icon" height="20%" width="20%" />
         </div>
         <!-- Login Form -->
-        <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+        <form action="LoginKontrol" method="post">
+
+            <input type="text" id="login" class="fadeIn second" name="UserName" placeholder="login">
+
+            <input type="text" id="password" class="fadeIn third" name="Password" placeholder="password">
+          
             <input type="submit" class="fadeIn fourth" value="Log In">
+
         </form>
+
         <!-- Remind Passowrd -->
         <div id="formFooter">
             <a class="underlineHover" href="#">Forgot Password?</a>
         </div>
+        @*@if (ViewBag.mesaj == "1")
+        {
+            <div class="alert">
+                <span class="closebtn">&times;</span>
+                <strong>Hata</strong> Kullanıcı adı veya Şifre Yanlış
+            </div>
+        }
+        else
+        {
+            <div class="alert success">
+                <span class="closebtn">&times;</span>
+                <strong>Success!</strong> Giriş Başarılı
+            </div>
+        }*@
     </div>
 </div>

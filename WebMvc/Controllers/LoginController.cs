@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using WebMvc.Models;
 
 namespace WebMvc.Controllers
@@ -11,9 +12,21 @@ namespace WebMvc.Controllers
         {
             return View();
         }
-        public ActionResult LoginKontrol(int? id)
+        public ActionResult LoginKontrol(User user)
         {
-            return View();
+            var x = db.User.Where(i => i.UserName == user.UserName && i.Password == user.Password).Select(i => i).ToList();
+            ViewBag.mesaj = "";
+            if (x.Count() == 0)
+            {
+                ModelState.AddModelError("", "EMail veya şifre hatalı!");
+                return Redirect("Index");
+            }
+            else
+            {
+                
+                return View();
+            }
+
         }
     }
 }
