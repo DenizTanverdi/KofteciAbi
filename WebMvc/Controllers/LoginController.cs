@@ -18,7 +18,7 @@ namespace WebMvc.Controllers
             ViewBag.mesaj = "";
             if (x.Count() == 0)
             {
-                ModelState.AddModelError("", "EMail veya şifre hatalı!");
+               
                 return Redirect("Index");
             }
             else
