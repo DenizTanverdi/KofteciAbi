@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -13,7 +14,7 @@ namespace WebMvc.Controllers
     public class KategoriController : Controller
     {
         private AppDbContext db = new AppDbContext();
-
+        DateTime dt;
         // GET: Kategori
         public ActionResult Index()
         {
@@ -40,16 +41,28 @@ namespace WebMvc.Controllers
         {
             return View();
         }
-
+        [HttpPost]
+        public ActionResult DosyaYukle(System.Web.HttpPostedFileBase yuklenecekDosya)
+        {
+            if (yuklenecekDosya != null)
+            {
+                string dosyaYolu = Path.GetFileName(yuklenecekDosya.FileName);
+                var yuklemeYeri = Path.Combine(Server.MapPath("~/Images"), dosyaYolu);
+                yuklenecekDosya.SaveAs(yuklemeYeri);
+            }
+            return View();
+        }
         // POST: Kategori/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,KategoriAdi,url,Acıklama,OlusturmaTarihi,GuncellemeTarihi")] Kategori kategori)
+        public ActionResult Create([Bind(Include = "Id,KategoriAdi,url,Acıklama")] Kategori kategori)
         {
             if (ModelState.IsValid)
             {
+                kategori.OlusturmaTarihi = DateTime.Now;
+                kategori.GuncellemeTarihi = DateTime.Now;
                 db.Kategori.Add(kategori);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -66,6 +79,7 @@ namespace WebMvc.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Kategori kategori = db.Kategori.Find(id);
+            dt = kategori.OlusturmaTarihi;
             if (kategori == null)
             {
                 return HttpNotFound();
@@ -78,10 +92,13 @@ namespace WebMvc.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,KategoriAdi,url,Acıklama,OlusturmaTarihi,GuncellemeTarihi")] Kategori kategori)
+        public ActionResult Edit([Bind(Include = "Id,KategoriAdi,url,Acıklama")] Kategori kategori)
         {
+       
             if (ModelState.IsValid)
             {
+                kategori.GuncellemeTarihi = DateTime.Now;
+                kategori.OlusturmaTarihi = DateTime.Now;
                 db.Entry(kategori).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

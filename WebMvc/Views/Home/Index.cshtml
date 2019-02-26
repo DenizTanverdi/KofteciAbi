@@ -103,6 +103,11 @@
 
 @foreach (var item in ViewBag.kategoriListele)
 {
+    string link = "";
+    string baslik = "";
+    string aciklama = "";
+    link = "/Images/" + item.url;
+   
     <hr class="featurette-divider">
     <div class="container">
         <div class="row featurette">
@@ -124,8 +129,9 @@
 
                 }
             </div>
+           
             <div class="col-md-5">
-                <img src="@item.url" width="445" height="250" />
+                <img src="@link" width="445" height="250" />
             </div>
         </div>
     </div>
