@@ -5,19 +5,12 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Ürün Detayı</h2>
 
 <div>
-    <h4>Urunler</h4>
+
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Student.UrunAdi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Student.UrunAdi)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.UrunAdi)
@@ -70,6 +63,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    <button class="btn btn-primary">  @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) </button>
+
+    <button class="btn btn-danger"> @Html.ActionLink("Back to List", "Index")</button>
 </p>
