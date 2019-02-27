@@ -28,5 +28,11 @@ namespace WebMvc.Controllers
             }
 
         }
+        public PartialViewResult UrunGetir()
+        {
+            var list = db.Urunler.ToList();
+
+            return PartialView("_urunPartialView", list);
+        }
     }
 }

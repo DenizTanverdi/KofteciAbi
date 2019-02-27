@@ -1,12 +1,20 @@
 ﻿
+
 @{
-    ViewBag.Title = "LoginKontrol";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
+
 <style>
     .vertical-menu {
         width: 200px;
     }
+    .ana{
+        width:600px;
+        height:400px;
+        float:left;
 
+    }
         .vertical-menu a {
             background-color: #eee;
             color: black;
@@ -24,12 +32,23 @@
                 color: white;
             }
 </style>
+<div>
+    <div style="float:left;width:200px;">
+        <div class="vertical-menu">
+            <a href="" class="active">Home</a>
+            <a href="#">Kullanıcılar</a>
+            @Ajax.ActionLink("Ürünler", "UrunGetir", new AjaxOptions()
+       {
+           HttpMethod = "POST",
+           UpdateTargetId = "sonuc",
+           InsertionMode = InsertionMode.Replace
+       })
+            @Html.ActionLink("Kategori", "Index", "Kategori")
+            <a href="#">Resim</a>
+            <a href="#">Yazı</a>
+        </div>
+    </div>
+    <div id="sonuc" class="ana">
 
-<div class="vertical-menu">
-    <a href="" class="active">Home</a>
-    <a href="#">Kullanıcılar</a>
-   @Html.ActionLink("Ürünler","Index","Urunler")
-    @Html.ActionLink("Kategori","Index","Kategori")
-    <a href="#">Resim</a>
-    <a href="#">Yazı</a>
+            </div>
 </div>
