@@ -5,50 +5,30 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<style>
-    .vertical-menu {
-        width: 200px;
-    }
-    .ana{
-        width:600px;
-        height:400px;
-        float:left;
-
-    }
-        .vertical-menu a {
-            background-color: #eee;
-            color: black;
-            display: block;
-            padding: 12px;
-            text-decoration: none;
-        }
-
-            .vertical-menu a:hover {
-                background-color: #ccc;
-            }
-
-            .vertical-menu a.active {
-                background-color: #4CAF50;
-                color: white;
-            }
-</style>
-<div>
-    <div style="float:left;width:200px;">
-        <div class="vertical-menu">
-            <a href="" class="active">Home</a>
-            <a href="#">Kullanıcılar</a>
-            @Ajax.ActionLink("Ürünler", "UrunGetir", new AjaxOptions()
-       {
-           HttpMethod = "POST",
-           UpdateTargetId = "sonuc",
-           InsertionMode = InsertionMode.Replace
-       })
-            @Html.ActionLink("Kategori", "Index", "Kategori")
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="vertical-menu">
+                <a href="" class="active">Home</a>
+                <a href="#">Kullanıcılar</a>
+                @Ajax.ActionLink("Ürünler", "UrunGetir", new AjaxOptions()
+           {
+               HttpMethod = "POST",
+               UpdateTargetId = "sonuc",
+               InsertionMode = InsertionMode.Replace
+           }) 
+                @Ajax.ActionLink("Kategori", "KategoriGetir", new AjaxOptions()
+        {
+            HttpMethod = "POST",
+            UpdateTargetId = "sonuc",
+            InsertionMode = InsertionMode.Replace
+        })
             <a href="#">Resim</a>
             <a href="#">Yazı</a>
+            </div>
+        </div>
+        <div id="sonuc" class="col-md-10">
+
         </div>
     </div>
-    <div id="sonuc" class="ana">
-
-            </div>
-</div>
+    </div>

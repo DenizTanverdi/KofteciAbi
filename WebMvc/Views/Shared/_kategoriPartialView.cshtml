@@ -1,0 +1,58 @@
+﻿@using WebMvc.Models
+@model List<Kategori>
+<h2>Kategori Listesi</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+           KATEGORİ ADI
+        </th>
+        <th>
+           URL
+        </th>
+        <th>
+          AÇIKLAMA
+        </th>
+        <th>
+          OLUŞTURMA TARİHİ
+        </th>
+        <th>
+           GUNCELLEME TARİHİ
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KategoriAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Acıklama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OlusturmaTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GuncellemeTarihi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    <button class="btn btn-success">  @Html.ActionLink("Create New", "Create")</button>
+    <button class="btn btn-danger">
+        @Html.ActionLink("Ana Sayfa", "LoginKontrol", "Login")
+    </button>
+</p>
