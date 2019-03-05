@@ -166,6 +166,14 @@
     <Compile Include="Migrations\201902191047449_kategoriupdate3.Designer.cs">
       <DependentUpon>201902191047449_kategoriupdate3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903051112460_DateTime.cs" />
+    <Compile Include="Migrations\201903051112460_DateTime.Designer.cs">
+      <DependentUpon>201903051112460_DateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903051116292_DateTime2.cs" />
+    <Compile Include="Migrations\201903051116292_DateTime2.Designer.cs">
+      <DependentUpon>201903051116292_DateTime2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\BaseEntity.cs" />
@@ -239,6 +247,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902191047449_kategoriupdate3.resx">
       <DependentUpon>201902191047449_kategoriupdate3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903051112460_DateTime.resx">
+      <DependentUpon>201903051112460_DateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903051116292_DateTime2.resx">
+      <DependentUpon>201903051116292_DateTime2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

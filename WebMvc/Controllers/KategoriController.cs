@@ -79,7 +79,7 @@ namespace WebMvc.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Kategori kategori = db.Kategori.Find(id);
-            dt = kategori.OlusturmaTarihi;
+            //dt = kategori.OlusturmaTarihi;
             if (kategori == null)
             {
                 return HttpNotFound();

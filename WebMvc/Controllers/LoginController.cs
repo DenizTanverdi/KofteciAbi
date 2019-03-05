@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -10,6 +11,7 @@ namespace WebMvc.Controllers
     {
         AppDbContext db = new AppDbContext();
         // GET: Login
+        DateTime olusturmaTarihi = DateTime.Now;
         public ActionResult Index()
         {
             return View();
@@ -44,26 +46,31 @@ namespace WebMvc.Controllers
         }
         public PartialViewResult editUrun(int? id)
         {
-            List<SelectListItem> kategoriler = new List<SelectListItem>();
+           
             //foreach ile db.Categories deki kategorileri listemize ekliyoruz
-            foreach (var item in db.Kategori.ToList())
-            {   //Text = Görünen kısımdır. Kategori ismini yazdıyoruz
-                //Value = Değer kısmıdır.ID değerini atıyoruz
-                kategoriler.Add(new SelectListItem { Text = item.KategoriAdi, Value = item.Id.ToString() });
+            if (id==null)
+            {
+                var list = db.Kategori.ToList();
+
+                return PartialView("_kategoriPartialView", list);
             }
+            Urunler urunler = db.Urunler.Find(id);
             //Dinamik bir yapı oluşturup kategoriler list mizi view mize göndereceğiz
             //bunun için viewbag kullanıyorum
-            ViewBag.Kategoriler = kategoriler;
 
+            olusturmaTarihi = urunler.OlusturmaTarihi;
 
-            var list = db.Urunler.Find(id);
-
-            return PartialView("_urunEditPartialView", list);
+            ViewBag.kategoriId = new SelectList(db.Kategori, "Id", "KategoriAdi", urunler.kategoriId);
+            return PartialView("_urunEditPartialView", urunler);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,kategoriId,UrunAdi,Adet,Fiyat,Url,OlusturmaTarihi,GuncellemeTarihi")] Urunler urunler)
+        public ActionResult Edit([Bind(Include = "Id,kategoriId,UrunAdi,Adet,Fiyat,OlusturmaTarihi")] Urunler urunler)
         {
+
+            urunler.GuncellemeTarihi = DateTime.Now;
+            
+            urunler.Url = "";
             if (ModelState.IsValid)
             {
                 db.Entry(urunler).State = EntityState.Modified;
