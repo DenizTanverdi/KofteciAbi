@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using WebMvc.Models;
@@ -59,5 +60,19 @@ namespace WebMvc.Controllers
 
             return PartialView("_urunEditPartialView", list);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,kategoriId,UrunAdi,Adet,Fiyat,Url,OlusturmaTarihi,GuncellemeTarihi")] Urunler urunler)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(urunler).State = EntityState.Modified;
+                db.SaveChanges();
+                return Redirect("Index");
+            }
+            ViewBag.kategoriId = new SelectList(db.Urunler, "Id", "UrunAdi", urunler.kategoriId);
+            return View(urunler);
+        }
+
     }
 }

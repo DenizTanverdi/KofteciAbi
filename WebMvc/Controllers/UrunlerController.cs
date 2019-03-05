@@ -73,7 +73,7 @@ namespace WebMvc.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.kategoriId = new SelectList(db.Urunler, "Id", "UrunAdi", urunler.kategoriId);
+            ViewBag.kategoriId = new SelectList(db.Kategori, "Id", "KategoriAdi", urunler.kategoriId);
             return View(urunler);
         }
 
