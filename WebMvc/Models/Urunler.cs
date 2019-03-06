@@ -13,11 +13,12 @@ namespace WebMvc.Models
 
         [DisplayName("Kategori")]
         [ForeignKey("kategoriId")]
-        public virtual Urunler Student { get; set; }
+        public virtual Kategori Kategori { get; set; }
         public string UrunAdi { get; set; }
         public int Adet { get; set; }
         public decimal Fiyat { get; set; }
         public string Url { get; set; }
        
+
     }
 }

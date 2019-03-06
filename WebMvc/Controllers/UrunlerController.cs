@@ -15,11 +15,7 @@ namespace WebMvc.Controllers
         private AppDbContext db = new AppDbContext();
 
         // GET: Urunler
-        public ActionResult Index()
-        {
-            var urunler = db.Urunler.Include(u => u.Student);
-            return View(urunler.ToList());
-        }
+       
 
         // GET: Urunler/Details/5
         public ActionResult Details(int? id)

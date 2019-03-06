@@ -75,11 +75,68 @@ namespace WebMvc.Controllers
             {
                 db.Entry(urunler).State = EntityState.Modified;
                 db.SaveChanges();
-                return Redirect("Index");
+                return Redirect("LoginKontrol");
             }
             ViewBag.kategoriId = new SelectList(db.Urunler, "Id", "UrunAdi", urunler.kategoriId);
             return View(urunler);
         }
+        public PartialViewResult detailsUrun(int? id)
+        {
 
+            //foreach ile db.Categories deki kategorileri listemize ekliyoruz
+            if (id == null)
+            {
+                var list = db.Kategori.ToList();
+
+                return PartialView("_kategoriPartialView", list);
+            }
+            Urunler urunler = db.Urunler.Find(id);
+            //Dinamik bir yapı oluşturup kategoriler list mizi view mize göndereceğiz
+            //bunun için viewbag kullanıyorum
+
+            olusturmaTarihi = urunler.OlusturmaTarihi;
+
+            ViewBag.kategoriId = new SelectList(db.Kategori, "Id", "KategoriAdi", urunler.kategoriId);
+            return PartialView("_urunDetailsPartialView", urunler);
+        }
+        public ActionResult Create()
+        {
+            ViewBag.kategoriId = new SelectList(db.Kategori, "Id", "KategoriAdi");
+            return PartialView("_urunCreatePartialView");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,kategoriId,UrunAdi,Adet,Fiyat,Url")] Urunler urunler)
+        {
+            
+            if (ModelState.IsValid)
+            {
+                urunler.OlusturmaTarihi = DateTime.Now;
+                urunler.GuncellemeTarihi = DateTime.Now;
+                db.Urunler.Add(urunler);
+                db.SaveChanges();
+                 return Redirect("LoginKontrol");
+            }
+
+            ViewBag.kategoriId = new SelectList(db.Urunler, "Id", "KategoriAdi", urunler.kategoriId);
+            return View(urunler);
+        }
+
+        public PartialViewResult Delete(int? id)
+        {
+           
+            Urunler urunler = db.Urunler.Find(id);
+          
+            return PartialView("_urunDeleteView",urunler);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            Urunler urunler = db.Urunler.Find(id);
+            db.Urunler.Remove(urunler);
+            db.SaveChanges();
+            return RedirectToAction("LoginKontrol");
+        }
     }
 }
