@@ -1,0 +1,47 @@
+﻿@model WebMvc.Models.Kategori
+
+
+
+<h1>Kategori Detayı</h1>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KategoriAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KategoriAdi)
+        </dd>
+
+        <dt>
+            Resim
+        </dt>
+
+        <dd>
+           <img src="~/Images/@Model.url" width="35%" height="35%"/>
+        </dd>
+            
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OlusturmaTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OlusturmaTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuncellemeTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuncellemeTarihi)
+        </dd>
+
+    </dl>
+</div>
+

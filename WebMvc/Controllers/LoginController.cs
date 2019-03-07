@@ -185,6 +185,57 @@ namespace WebMvc.Controllers
             }
             return Json(new { hasError = true, message = "Dosya NullB" });
         }
+        public PartialViewResult detailsKategori(int? id)
+        {
 
+            //foreach ile db.Categories deki kategorileri listemize ekliyoruz
+           
+            Kategori kategori = db.Kategori.Find(id);
+            //Dinamik bir yapı oluşturup kategoriler list mizi view mize göndereceğiz
+            //bunun için viewbag kullanıyorum
+
+            olusturmaTarihi = kategori.OlusturmaTarihi;
+
+            // ViewBag.kategoriId = new SelectList(db.Kategori, "Id", "KategoriAdi", urunler.kategoriId); _kategoriDeletePartialView
+            return PartialView("_kategoriDetailsPartialView", kategori);
+        }
+        public PartialViewResult DeleteKategori(int? id)
+        {
+
+            Kategori kategori = db.Kategori.Find(id);
+
+            return PartialView("_kategoriDeletePartialView", kategori);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteKategori(int id)
+        {
+            Kategori kategori = db.Kategori.Find(id);
+            db.Kategori.Remove(kategori);
+            db.SaveChanges();
+            return RedirectToAction("LoginKontrol");
+        }
+        public ActionResult CreateKategori()
+        {
+           
+            return PartialView("_kategoriCreatePartialView");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateKategori([Bind(Include = "Id,KategoriAdi,url,Acıklama")] Kategori kategori)
+        {
+
+            if (ModelState.IsValid)
+            {
+                kategori.OlusturmaTarihi = DateTime.Now;
+                kategori.GuncellemeTarihi = DateTime.Now;
+                db.Kategori.Add(kategori);
+                db.SaveChanges();
+                return Redirect("LoginKontrol");
+            }
+
+           
+            return View(kategori);
+        }
     }
 }

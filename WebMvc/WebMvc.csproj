@@ -218,6 +218,9 @@
     <Content Include="Views\Shared\_urunCreatePartialView.cshtml" />
     <Content Include="Views\Shared\_urunDeleteView.cshtml" />
     <Content Include="Views\Shared\_kategoriEditPartialView.cshtml" />
+    <Content Include="Views\Shared\_kategoriDetailsPartialView.cshtml" />
+    <Content Include="Views\Shared\_kategoriDeletePartialView.cshtml" />
+    <Content Include="Views\Shared\_kategoriCreatePartialView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
