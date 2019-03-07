@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using WebMvc.Models;
 
@@ -138,5 +140,51 @@ namespace WebMvc.Controllers
             db.SaveChanges();
             return RedirectToAction("LoginKontrol");
         }
+        public PartialViewResult editKategori(int? id)
+        {
+
+           
+            Kategori kategori = db.Kategori.Find(id);
+            //dt = kategori.OlusturmaTarihi;
+
+            return PartialView("_kategoriEditPartialView", kategori);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditKategori([Bind(Include = "Id,KategoriAdi,url,Acıklama,OlusturmaTarihi")] Kategori kategori)
+        {
+
+            kategori.GuncellemeTarihi = DateTime.Now;
+
+           
+            if (ModelState.IsValid)
+            {
+                db.Entry(kategori).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("LoginKontrol");
+            }
+            
+            return View(kategori);
+        }
+        public JsonResult FileUpload(HttpPostedFileBase file)
+        {
+
+            if (file != null)
+            {
+                if (Directory.Exists(Server.MapPath("~/Images")) == false)
+                {
+                    Directory.CreateDirectory(Server.MapPath("~/Images"));
+                    file.SaveAs(Path.Combine(Server.MapPath("~/Images"), file.FileName));
+                    return Json(new { hasError = false, message = "Dosya yüklendi" });
+                }
+                else {
+                    file.SaveAs(Path.Combine(Server.MapPath("~/Images"), file.FileName));
+                    return Json(new { hasError = false, message = "Dosya yüklendi" });
+                }
+                
+            }
+            return Json(new { hasError = true, message = "Dosya NullB" });
+        }
+
     }
 }
