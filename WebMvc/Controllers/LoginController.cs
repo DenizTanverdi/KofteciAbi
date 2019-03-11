@@ -244,6 +244,31 @@ namespace WebMvc.Controllers
            
             return View(kategori);
         }
-       
+        public PartialViewResult editResim(int? id)
+        {
+
+
+            Kategori kategori = db.Kategori.Find(id);
+            //dt = kategori.OlusturmaTarihi;
+
+            return PartialView("_imageEditPartialView", kategori);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditResim([Bind(Include = "Id,Baslik,Aciklama,Url,OlusturmaTarihi")] Kategori kategori)
+        {
+
+            kategori.GuncellemeTarihi = DateTime.Now;
+
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(kategori).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("LoginKontrol");
+            }
+
+            return View(kategori);
+        }
     }
 }
