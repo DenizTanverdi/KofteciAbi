@@ -222,13 +222,13 @@ namespace WebMvc.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateKategori([Bind(Include = "Id,KategoriAdi,url,Acıklama")] Kategori kategori)
+        public ActionResult CreateKategori([Bind(Include = "KategoriAdi,url,Acıklama")] Kategori kategori)
         {
-
+            kategori.OlusturmaTarihi = DateTime.Now;
+            kategori.GuncellemeTarihi = DateTime.Now;
             if (ModelState.IsValid)
             {
-                kategori.OlusturmaTarihi = DateTime.Now;
-                kategori.GuncellemeTarihi = DateTime.Now;
+                
                 db.Kategori.Add(kategori);
                 db.SaveChanges();
                 return Redirect("LoginKontrol");
