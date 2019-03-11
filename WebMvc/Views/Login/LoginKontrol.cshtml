@@ -16,15 +16,26 @@
                HttpMethod = "POST",
                UpdateTargetId = "sonuc",
                InsertionMode = InsertionMode.Replace
-           }) 
+           })
                 @Ajax.ActionLink("Kategori", "KategoriGetir", new AjaxOptions()
         {
             HttpMethod = "POST",
             UpdateTargetId = "sonuc",
             InsertionMode = InsertionMode.Replace
         })
-            <a href="#">Resim</a>
-            <a href="#">Yazı</a>
+                @Ajax.ActionLink("Ürünler", "UrunGetir", new AjaxOptions()
+               {
+                   HttpMethod = "POST",
+                   UpdateTargetId = "sonuc",
+                   InsertionMode = InsertionMode.Replace
+               })
+                @Ajax.ActionLink("Resim", "ResimGetir", new AjaxOptions()
+        {
+            HttpMethod = "POST",
+            UpdateTargetId = "sonuc",
+            InsertionMode = InsertionMode.Replace
+        })
+                <a href="#">Yazı</a>
             </div>
         </div>
         <div id="sonuc" class="col-md-10">

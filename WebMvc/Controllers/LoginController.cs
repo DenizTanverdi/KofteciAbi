@@ -46,6 +46,13 @@ namespace WebMvc.Controllers
 
             return PartialView("_kategoriPartialView", list);
         }
+        public PartialViewResult ResimGetir()
+        {
+
+            var list = db.Image.ToList();
+
+            return PartialView("_imagePartialView", list);
+        }
         public PartialViewResult editUrun(int? id)
         {
            
@@ -237,5 +244,6 @@ namespace WebMvc.Controllers
            
             return View(kategori);
         }
+       
     }
 }

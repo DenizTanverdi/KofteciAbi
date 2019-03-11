@@ -221,6 +221,7 @@
     <Content Include="Views\Shared\_kategoriDetailsPartialView.cshtml" />
     <Content Include="Views\Shared\_kategoriDeletePartialView.cshtml" />
     <Content Include="Views\Shared\_kategoriCreatePartialView.cshtml" />
+    <Content Include="Views\Shared\_imagePartialView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
