@@ -42,7 +42,7 @@
                 @Html.DisplayFor(modelItem => item.GuncellemeTarihi)
             </td>
             <td>
-                @Ajax.ActionLink("Düzenle", "editKategori", new { id = item.Id }, new AjaxOptions()
+                @Ajax.ActionLink("Düzenle", "editResim", new { id = item.Id }, new AjaxOptions()
            {
                HttpMethod = "Get",
                UpdateTargetId = "urun",
@@ -52,7 +52,7 @@
                LoadingElementDuration=250
            },new { @class = "btn btn-primary", data_target = "#exampleModalLong" })
 
-                @Ajax.ActionLink("Detay", "detailsKategori", new { id = item.Id }, new AjaxOptions()
+                @Ajax.ActionLink("Detay", "detailsResim", new { id = item.Id }, new AjaxOptions()
            {
                HttpMethod = "Get",
                UpdateTargetId = "urun",
@@ -61,7 +61,7 @@
                LoadingElementId = "divLoading",
                LoadingElementDuration=250
            },new { @class = "btn btn-success", data_target = "#exampleModalLong" })
-                @Ajax.ActionLink("Sil", "DeleteKategori", new { id = item.Id }, new AjaxOptions()
+                @Ajax.ActionLink("Sil", "DeleteResim", new { id = item.Id }, new AjaxOptions()
                           {
                               HttpMethod = "Get",
                               UpdateTargetId = "urun",

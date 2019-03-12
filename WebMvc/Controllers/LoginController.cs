@@ -248,25 +248,77 @@ namespace WebMvc.Controllers
         {
 
 
-            Kategori kategori = db.Kategori.Find(id);
+            Image image = db.Image.Find(id);
             //dt = kategori.OlusturmaTarihi;
 
-            return PartialView("_imageEditPartialView", kategori);
+            return PartialView("_imageEditPartialView", image);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditResim([Bind(Include = "Id,Baslik,Aciklama,Url,OlusturmaTarihi")] Kategori kategori)
+        public ActionResult EditResim([Bind(Include = "Id,Baslik,Aciklama,Url,OlusturmaTarihi")] Image image)
         {
 
-            kategori.GuncellemeTarihi = DateTime.Now;
+            image.GuncellemeTarihi = DateTime.Now;
 
 
             if (ModelState.IsValid)
             {
-                db.Entry(kategori).State = EntityState.Modified;
+                db.Entry(image).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("LoginKontrol");
             }
+
+            return View(image);
+        }
+        public PartialViewResult detailsResim(int? id)
+        {
+
+            //foreach ile db.Categories deki kategorileri listemize ekliyoruz
+
+            Image image = db.Image.Find(id);
+            //Dinamik bir yapı oluşturup kategoriler list mizi view mize göndereceğiz
+            //bunun için viewbag kullanıyorum
+
+            olusturmaTarihi = image.OlusturmaTarihi;
+
+            // ViewBag.kategoriId = new SelectList(db.Kategori, "Id", "KategoriAdi", urunler.kategoriId); _kategoriDeletePartialView
+            return PartialView("_resimDetailsPartialView", image);
+        }
+        public PartialViewResult DeleteResim(int? id)
+        {
+
+            Image image = db.Image.Find(id);
+
+            return PartialView("_imageDeletePartialView", image);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteResim(int id)
+        {
+            Kategori kategori = db.Kategori.Find(id);
+            db.Kategori.Remove(kategori);
+            db.SaveChanges();
+            return RedirectToAction("LoginKontrol");
+        }
+        public ActionResult CreateResim()
+        {
+
+            return PartialView("_kategoriCreatePartialView");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateImage([Bind(Include = "KategoriAdi,url,Acıklama")] Kategori kategori)
+        {
+            kategori.OlusturmaTarihi = DateTime.Now;
+            kategori.GuncellemeTarihi = DateTime.Now;
+            if (ModelState.IsValid)
+            {
+
+                db.Kategori.Add(kategori);
+                db.SaveChanges();
+                return Redirect("LoginKontrol");
+            }
+
 
             return View(kategori);
         }

@@ -1,0 +1,61 @@
+﻿
+@model WebMvc.Models.Image
+<h3>Ürünü Silmek İstediğinizden Emin Misiniz ?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baslik)
+        </dd>
+
+        <dt>
+            Resim
+        </dt>
+
+        <dd>
+            <img src="~/Images/@Model.Url" width="35%" height="35%" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OlusturmaTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OlusturmaTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuncellemeTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuncellemeTarihi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions ">
+            <input type="submit" class="btn btn-danger" value="Sil" />
+
+        </div>
+    }
+</div>
+
+
