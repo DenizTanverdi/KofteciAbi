@@ -295,32 +295,32 @@ namespace WebMvc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteResim(int id)
         {
-            Kategori kategori = db.Kategori.Find(id);
-            db.Kategori.Remove(kategori);
+            Image kategori = db.Image.Find(id);
+            db.Image.Remove(kategori);
             db.SaveChanges();
             return RedirectToAction("LoginKontrol");
         }
-        public ActionResult CreateResim()
+        public ActionResult CreateImage()
         {
 
-            return PartialView("_kategoriCreatePartialView");
+            return PartialView("_imageCreatePartialView");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateImage([Bind(Include = "KategoriAdi,url,Acıklama")] Kategori kategori)
+        public ActionResult CreateImage([Bind(Include = "Baslik,Aciklama,Url")] Image image)
         {
-            kategori.OlusturmaTarihi = DateTime.Now;
-            kategori.GuncellemeTarihi = DateTime.Now;
+            image.OlusturmaTarihi = DateTime.Now;
+            image.GuncellemeTarihi = DateTime.Now;
             if (ModelState.IsValid)
             {
 
-                db.Kategori.Add(kategori);
+                db.Image.Add(image);
                 db.SaveChanges();
                 return Redirect("LoginKontrol");
             }
 
 
-            return View(kategori);
+            return View(image);
         }
     }
 }

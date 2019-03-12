@@ -225,6 +225,7 @@
     <Content Include="Views\Shared\_imageEditPartialView.cshtml" />
     <Content Include="Views\Shared\_resimDetailsPartialView.cshtml" />
     <Content Include="Views\Shared\_imageDeletePartialView.cshtml" />
+    <Content Include="Views\Shared\_imageCreatePartialView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
