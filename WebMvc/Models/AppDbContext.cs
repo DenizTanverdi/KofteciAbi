@@ -18,6 +18,7 @@ namespace WebMvc.Models
             public DbSet<User> User { get; set; }
         public DbSet<Image> Image { get; set; }
         public DbSet<Kategori> Kategori { get; set; }
+        public DbSet<Yazi> Yazi { get; set; }
     }
     
 }

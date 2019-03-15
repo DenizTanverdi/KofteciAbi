@@ -178,6 +178,10 @@
     <Compile Include="Migrations\201903061010462_Urun.Designer.cs">
       <DependentUpon>201903061010462_Urun.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903150606485_YaziAdd.cs" />
+    <Compile Include="Migrations\201903150606485_YaziAdd.Designer.cs">
+      <DependentUpon>201903150606485_YaziAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\BaseEntity.cs" />
@@ -186,6 +190,7 @@
     <Compile Include="Models\Sube.cs" />
     <Compile Include="Models\Urunler.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Yazi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -272,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903061010462_Urun.resx">
       <DependentUpon>201903061010462_Urun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903150606485_YaziAdd.resx">
+      <DependentUpon>201903150606485_YaziAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
