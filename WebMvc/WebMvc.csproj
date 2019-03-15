@@ -233,6 +233,7 @@
     <Content Include="Views\Shared\_imageCreatePartialView.cshtml" />
     <Content Include="Views\Shared\_yaziPartialView.cshtml" />
     <Content Include="Views\Shared\_yaziCreatePartialView.cshtml" />
+    <Content Include="Views\Shared\_yaziEditPartialView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

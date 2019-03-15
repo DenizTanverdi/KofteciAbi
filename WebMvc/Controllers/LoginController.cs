@@ -358,11 +358,11 @@ namespace WebMvc.Controllers
             Yazi yazi = db.Yazi.Find(id);
             //dt = kategori.OlusturmaTarihi;
 
-            return PartialView("_yaziPartialView", yazi);
+            return PartialView("_yaziEditPartialView", yazi);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditYazi([Bind(Include = "Baslik,Aciklama,OlusturmaTarihi")] Yazi yazi)
+        public ActionResult EditYazi([Bind(Include = "Id,Baslik,Aciklama,OlusturmaTarihi")] Yazi yazi)
         {
 
             yazi.GuncellemeTarihi = DateTime.Now;

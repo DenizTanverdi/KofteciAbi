@@ -27,8 +27,8 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Baslik)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Aciklama)
+            <td >
+                @Html.DisplayFor(modelItem => item.Aciklama,new { @style="height:50%;width:50%;"})
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OlusturmaTarihi)
@@ -37,7 +37,7 @@
                 @Html.DisplayFor(modelItem => item.GuncellemeTarihi)
             </td>
             <td>
-                @Ajax.ActionLink("Düzenle", "editResim", new { id = item.Id }, new AjaxOptions()
+                @Ajax.ActionLink("Düzenle", "editYazi", new { id = item.Id }, new AjaxOptions()
            {
                HttpMethod = "Get",
                UpdateTargetId = "urun",
@@ -47,24 +47,7 @@
                LoadingElementDuration=250
            },new { @class = "btn btn-primary", data_target = "#exampleModalLong" })
 
-                @Ajax.ActionLink("Detay", "detailsResim", new { id = item.Id }, new AjaxOptions()
-           {
-               HttpMethod = "Get",
-               UpdateTargetId = "urun",
-               OnSuccess = "showModal",
-               InsertionMode = InsertionMode.Replace,
-               LoadingElementId = "divLoading",
-               LoadingElementDuration=250
-           },new { @class = "btn btn-success", data_target = "#exampleModalLong" })
-                @Ajax.ActionLink("Sil", "DeleteResim", new { id = item.Id }, new AjaxOptions()
-                          {
-                              HttpMethod = "Get",
-                              UpdateTargetId = "urun",
-                              OnSuccess = "showModal",
-                              InsertionMode = InsertionMode.Replace,
-                              LoadingElementId = "divLoading",
-                              LoadingElementDuration=250
-                          },new { @class = "btn btn-danger", data_target = "#exampleModalLong" })
+             
             </td>
         </tr>
     }

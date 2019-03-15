@@ -15,6 +15,7 @@ namespace WebMvc.Controllers
         {
             ViewBag.kategoriListele = db.Kategori.ToList();
             ViewBag.urunListele = db.Urunler.ToList();
+            ViewBag.yazi = db.Yazi.Where(i=>i.Id==1).ToList();
             return View(db.Image.ToList());
         }
     }
