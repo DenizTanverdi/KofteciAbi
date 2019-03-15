@@ -53,6 +53,13 @@ namespace WebMvc.Controllers
 
             return PartialView("_imagePartialView", list);
         }
+        public PartialViewResult YaziGetir()
+        {
+
+            var list = db.Yazi.ToList();
+
+            return PartialView("_yaziPartialView", list);
+        }
         public PartialViewResult editUrun(int? id)
         {
            
@@ -321,6 +328,54 @@ namespace WebMvc.Controllers
 
 
             return View(image);
+        }
+        public ActionResult CreateYazi()
+        {
+           
+            return PartialView("_yaziCreatePartialView");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateYazi([Bind(Include = "Baslik,Aciklama")] Yazi yazi)
+        {
+            yazi.OlusturmaTarihi = DateTime.Now;
+            yazi.GuncellemeTarihi = DateTime.Now;
+            if (ModelState.IsValid)
+            {
+
+                db.Yazi.Add(yazi);
+                db.SaveChanges();
+                return Redirect("LoginKontrol");
+            }
+
+
+            return View(yazi);
+        }
+        public PartialViewResult editYazi(int? id)
+        {
+
+
+            Yazi yazi = db.Yazi.Find(id);
+            //dt = kategori.OlusturmaTarihi;
+
+            return PartialView("_yaziPartialView", yazi);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditYazi([Bind(Include = "Baslik,Aciklama,OlusturmaTarihi")] Yazi yazi)
+        {
+
+            yazi.GuncellemeTarihi = DateTime.Now;
+
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(yazi).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("LoginKontrol");
+            }
+
+            return View(yazi);
         }
     }
 }

@@ -23,14 +23,20 @@
             UpdateTargetId = "sonuc",
             InsertionMode = InsertionMode.Replace
         })
-              
+
                 @Ajax.ActionLink("Resim", "ResimGetir", new AjaxOptions()
         {
             HttpMethod = "POST",
             UpdateTargetId = "sonuc",
             InsertionMode = InsertionMode.Replace
         })
-                <a href="#">Yazı</a>
+                @Ajax.ActionLink("Yazi", "YaziGetir", new AjaxOptions()
+       {
+           HttpMethod = "POST",
+           UpdateTargetId = "sonuc",
+           InsertionMode = InsertionMode.Replace
+       })
+               
             </div>
         </div>
         <div id="sonuc" class="col-md-10">

@@ -1,0 +1,144 @@
+﻿
+@using WebMvc.Models
+@model List<Yazi>
+<h2>Yazı Listesi</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            BAŞLIK
+        </th>
+        <th>
+            AÇIKLAMA
+        </th>
+        <th>
+            OLUŞTURMA TARİHİ
+        </th>
+        <th>
+            GÜNCELLEME TARİHİ
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Baslik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aciklama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OlusturmaTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GuncellemeTarihi)
+            </td>
+            <td>
+                @Ajax.ActionLink("Düzenle", "editResim", new { id = item.Id }, new AjaxOptions()
+           {
+               HttpMethod = "Get",
+               UpdateTargetId = "urun",
+               OnSuccess = "showModal",
+               InsertionMode = InsertionMode.Replace,
+               LoadingElementId = "divLoading",
+               LoadingElementDuration=250
+           },new { @class = "btn btn-primary", data_target = "#exampleModalLong" })
+
+                @Ajax.ActionLink("Detay", "detailsResim", new { id = item.Id }, new AjaxOptions()
+           {
+               HttpMethod = "Get",
+               UpdateTargetId = "urun",
+               OnSuccess = "showModal",
+               InsertionMode = InsertionMode.Replace,
+               LoadingElementId = "divLoading",
+               LoadingElementDuration=250
+           },new { @class = "btn btn-success", data_target = "#exampleModalLong" })
+                @Ajax.ActionLink("Sil", "DeleteResim", new { id = item.Id }, new AjaxOptions()
+                          {
+                              HttpMethod = "Get",
+                              UpdateTargetId = "urun",
+                              OnSuccess = "showModal",
+                              InsertionMode = InsertionMode.Replace,
+                              LoadingElementId = "divLoading",
+                              LoadingElementDuration=250
+                          },new { @class = "btn btn-danger", data_target = "#exampleModalLong" })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="modal fade " id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">KÖFTECİ ABİ</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="urun">
+
+
+
+
+
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    <button type="submit" class="btn btn-primary" form="formedit">Kaydet</button>
+                    <a></a>
+                </div>*@
+        </div>
+
+
+    </div>
+</div>
+<div class="modal fade " id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">KÖFTECİ ABİ</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="urundetails">
+
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+   @Ajax.ActionLink("Yeni Yazi Oluştur", "CreateYazi", new{ },new AjaxOptions()
+{
+    HttpMethod = "Get",
+    UpdateTargetId = "urun",
+    OnSuccess = "showModal",
+    InsertionMode = InsertionMode.Replace,
+    LoadingElementId = "divLoading",
+    LoadingElementDuration = 250
+}, new { @class = "btn btn-success", data_target = "#exampleModalLong" })
+
+
+
+
+<script>
+    function showModal() {
+        $('#exampleModalLong').modal('show');
+    }
+</script>
